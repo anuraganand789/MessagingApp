@@ -1,4 +1,4 @@
 package com.refactoredcodes.chat;
 
-public class Room {
+public record Room(String name) {
 }

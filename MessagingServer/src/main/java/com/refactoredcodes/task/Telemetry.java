@@ -1,14 +1,14 @@
 package com.refactoredcodes.task;
 
-import com.refactoredcodes.server.SocketQueue;
+import com.refactoredcodes.server.SocketConnectionQueue;
 
 import java.util.TimerTask;
 
 public class Telemetry extends TimerTask {
 
-    private SocketQueue connectionQueue;
+    private SocketConnectionQueue connectionQueue;
 
-    public Telemetry(final SocketQueue connectionQueue){
+    public Telemetry(final SocketConnectionQueue connectionQueue){
         this.connectionQueue = connectionQueue;
     }
     @Override

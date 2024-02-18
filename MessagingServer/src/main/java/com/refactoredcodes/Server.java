@@ -1,6 +1,7 @@
 package com.refactoredcodes;
 
-import com.refactoredcodes.server.SocketQueue;
+import com.refactoredcodes.db.ServerDataInitalizer;
+import com.refactoredcodes.server.SocketConnectionQueue;
 import com.refactoredcodes.server.SocketWaiter;
 import com.refactoredcodes.task.Telemetry;
 
@@ -12,8 +13,11 @@ public class Server {
 
     public static void main( String[] args ) throws IOException {
         System.out.println("Server started");
-        final SocketQueue connectionQueue = new SocketQueue();
 
+        new ServerDataInitalizer().initialize();
+        GlobalState.messageQueue.readReaderQueue();
+
+        final SocketConnectionQueue connectionQueue = new SocketConnectionQueue();
         final Timer timer = new Timer(true);
         timer.scheduleAtFixedRate(new Telemetry(connectionQueue), 1000, 5000);
 

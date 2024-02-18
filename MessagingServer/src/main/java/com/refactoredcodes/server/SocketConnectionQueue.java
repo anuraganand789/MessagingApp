@@ -3,7 +3,7 @@ package com.refactoredcodes.server;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SocketQueue {
+public class SocketConnectionQueue {
     private long totalConnections = 0;
     private Map<Long, SocketConnection> connectionMap = new HashMap<>();
 
